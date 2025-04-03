@@ -27,7 +27,7 @@ function HomePage({ products, addToCart, searchTerm }) {
 
       <div>
         <h2 className={styles.searchTermText}>
-          {searchTerm? `'${searchTerm}' 검색 결과` : '모든 상품'}
+          {categoryName? `'${categoryName}' 검색 결과` : '모든 상품'}
         </h2>
         <ProductList
           products={products}
