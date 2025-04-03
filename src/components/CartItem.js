@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from '../styles/CartItem.module.css'
 
 function CartItem({ item, updateQuantity, removeFromCart }){
   const {product, quantity} = item
@@ -22,9 +23,9 @@ function CartItem({ item, updateQuantity, removeFromCart }){
   }
 
   return (
-    <div>
+    <div className={styles.itemContainer}>
       <div>
-        <img src={product.imgUrl} alt={product.name}/>
+        <img src={product.imageUrl} alt={product.name} className={styles.itemImg}/>
       </div>
 
       <div>

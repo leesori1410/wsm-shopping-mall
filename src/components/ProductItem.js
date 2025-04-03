@@ -1,9 +1,9 @@
-// 개별 상품을 표시하는 컴포넌트
-
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import styles from '../styles/ProductItem.module.css'
 
 function ProductItem({product, addToCart}) {
+    const navigate = useNavigate()
     const {id, name, price, imageUrl, category} = product;
 
     // 현재 상품(product)을 장바구니에 추가
@@ -16,12 +16,16 @@ function ProductItem({product, addToCart}) {
         return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ", ") + "원"
     }
 
+    const handleClick = (id) => {
+        navigate(`/product/${id}`)
+    }
+
     return(
-        <div className="product-image">
+        <div className={styles.productItemContainer} onClick={() => handleClick(id)}>
             <div>
                 {/* 템플릿 리터럴 / a태그와 달리 화면의 UI를 새로고침하기 때문에 더 빠름 */}
                 <Link to={`/product/${id}`}>
-                    <img src={imageUrl} alt={name} />
+                    <img src={imageUrl} alt={name} className={styles.productImg} />
                 </Link>
             </div>
 
@@ -33,9 +37,10 @@ function ProductItem({product, addToCart}) {
                 <p>{formatPrice(price)}</p>
             </div>
 
-            <div className="product-actions">
+            <div className={styles.productActions}>
                 <button
                     onClick={handleAddToCart}
+                    className={styles.cartBtn}
                 >
                     장바구니 추가
                 </button>

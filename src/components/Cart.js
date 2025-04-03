@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CartItem from './CartItem'
+import styles from '../styles/Cart.module.css'
 
 function Cart({ cartItems, updateQuantity, removeFromCart, clearCart }) {
   const calculateTotal = () => {
@@ -18,23 +19,34 @@ function Cart({ cartItems, updateQuantity, removeFromCart, clearCart }) {
   }
   
   return (
-    <div>
-      <h2>cart</h2>
-      {cartItems.length===0}?(
+    <div className={styles.cartContainer}>
+      <h2 className={styles.text}>cart</h2>
+      {cartItems.length===0?(
         <div>
-          <p>no items</p>
+          <p>no item</p>
           <Link to='/'>go shopping</Link>
         </div>
       ) : (
         <>
-        <div>
-          <span>product</span>
-          <span>count</span>
-          <span>total</span>
+        <div className={styles.productContainer}>
+          <span className={styles.title}>상품</span>
+          {
+            cartItems.map((cartItem) => (
+              <CartItem item={cartItem} updateQuantity={updateQuantity} removeFromCart={removeFromCart} />
+            ))
+          }
+          <div>
+            <span className={styles.title}>개수 : </span>
+            <span>{cartItems.reduce((total, item) => total + item.quantity, 0)}</span>
+          </div>
+          <div>
+            <span className={styles.title}>합계 : </span> 
+            <span>{formatPrice(cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0))}</span>
+          </div>
           <span></span>
         </div>
         </>
-      )
+      )}
     </div>
   )
 }

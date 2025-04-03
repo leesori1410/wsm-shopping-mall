@@ -4,7 +4,8 @@ const products = [
     name: "편안한 티셔츠",
     price: 25000,
     description: "100% 면으로 제작된 편안한 일상용 티셔츠입니다.",
-    imageUrl: "https://via.placeholder.com/200x200?text=T-shirt&quot",
+    // imageUrl: "https://via.placeholder.com/200x200?text=T-shirt&quot",
+    imageUrl: "https://i.pinimg.com/736x/8c/97/55/8c97555a2683888d45d294535079a0da.jpg",
     category: "의류"
     },
     {

@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useParams, Link } from "react-router-dom"
+import styles from '../styles/ProductDetailPage.module.css'
 
 function ProductDetailPage({ products, addToCart }){
   const {id} = useParams()
@@ -36,10 +37,10 @@ function ProductDetailPage({ products, addToCart }){
   }
 
   return(
-    <div>
+    <div className={styles.detailContainer}>
       <div>
         <div>
-          <img src={product.imageUrl} alt={product.name}/>
+          <img src={product.imageUrl} alt={product.name} className={styles.image}/>
         </div>
 
         <div>

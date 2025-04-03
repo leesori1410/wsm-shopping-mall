@@ -1,20 +1,25 @@
 import React, {useState} from "react"
+import { useNavigate } from "react-router-dom"
+import styles from '../styles/SearchBar.module.css'
 
 function SearchBar({onSearch}) {
-    const [searchTerm, SetSearchTerm] = useState("")
+    const navigate = useNavigate()
+    const [searchTerm, setSearchTerm] = useState("")
 
     const handleChange = (e) => {
-        SetSearchTerm(e.target.value)
+        setSearchTerm(e.target.value)
     }
 
     const handleSubmit = (e) => {
-        e.perventDefault()
+        e.preventDefault()
         onSearch(searchTerm)
+        setSearchTerm('')
+        navigate("/")
     }
 
     return (
         <div>
-            <from onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     placeholder="상품 검색!"
@@ -24,7 +29,7 @@ function SearchBar({onSearch}) {
                 <button type="submit">
                     <span>검색</span>
                 </button>
-            </from>
+            </form>
         </div>
     )
 }
