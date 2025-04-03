@@ -13,10 +13,10 @@ function Hearder({cartItemCount, onSearch}) {
             </div>
             
             <nav className={styles.container}>
-                <li><Link to="/">홈</Link></li>
-                <li><Link to="/category/의류">의류</Link></li>
-                <li><Link to="/category/전자기기">전자기기</Link></li>
-                <li><Link to="/category/액세서리">액세서리</Link></li>
+                <li onClick={() => onSearch('')}><Link to="/">홈</Link></li>
+                <li onClick={() => onSearch('')}><Link to="/category/의류">의류</Link></li>
+                <li onClick={() => onSearch('')}><Link to="/category/전자기기">전자기기</Link></li>
+                <li onClick={() => onSearch('')}><Link to="/category/액세서리">액세서리</Link></li>
             </nav>
 
             <div className={styles.container}>
