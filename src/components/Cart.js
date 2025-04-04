@@ -43,7 +43,9 @@ function Cart({ cartItems, updateQuantity, removeFromCart, clearCart }) {
             <span className={styles.title}>합계 : </span> 
             <span>{formatPrice(cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0))}</span>
           </div>
-          <span></span>
+          <button onClick={clearCart}>
+              비우기
+          </button>
         </div>
         </>
       )}

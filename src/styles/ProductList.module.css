@@ -1,4 +1,4 @@
-.productListContainer {
+/* .productListContainer {
     width: 100%;
     height: auto;
     display: flex;
@@ -11,4 +11,67 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-}
+} */
+
+.productListContainer {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .listContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+  }
+  
+  /* 검색 결과가 없을 때 스타일 */
+  .productListContainer > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    width: 100%;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .productListContainer > div:first-child p {
+    font-size: 1.2rem;
+    color: #777;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  /* 애니메이션 효과 */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .listContainer > * {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* 반응형 디자인 */
+  @media (max-width: 768px) {
+    .listContainer {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .listContainer {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+  }
+  
+  /* 호버 효과를 위한 추가 (ProductItem 컴포넌트와 조화를 이루기 위함) */
+  .listContainer:hover > :not(:hover) {
+    opacity: 0.8;
+    transform: scale(0.98);
+    transition: all 0.3s ease;
+  }

@@ -1,4 +1,4 @@
-.HomeContainer {
+/* .HomeContainer {
     margin-top: 45px;
     width: 100%;
     height: auto;
@@ -25,4 +25,104 @@
     width: 100%;
     text-align: center;
     margin: 10px 0;
-}
+} */
+
+/* Home.module.css */
+.HomeContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  
+  .headerContainer {
+    position: relative;
+    height: 300px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .textContainer {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    padding: 30px;
+    max-width: 800px;
+  }
+  
+  .textContainer h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  .textContainer p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.8s ease-in-out 0.3s both;
+  }
+  
+  .searchTermText {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin: 24px 0;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #a777e3;
+    display: inline-block;
+  }
+  
+  /* 애니메이션 */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 반응형 스타일 */
+  @media (max-width: 768px) {
+    .headerContainer {
+      height: 220px;
+    }
+    
+    .textContainer h1 {
+      font-size: 1.8rem;
+    }
+    
+    .textContainer p {
+      font-size: 1rem;
+    }
+    
+    .searchTermText {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .headerContainer {
+      height: 180px;
+    }
+    
+    .textContainer h1 {
+      font-size: 1.5rem;
+    }
+    
+    .searchTermText {
+      font-size: 1.2rem;
+    }
+  }
